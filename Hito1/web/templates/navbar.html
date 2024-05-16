@@ -1,6 +1,6 @@
 <nav class="container-fluid navbar navbar-expand-lg">
     <div class="container-fluid px-md-5">
-        <a class="navbar-brand text-white fw-bold ms-5 ps-5 fs-4" href="#">ONLYFLANS</a>
+        <a class="navbar-brand text-white fw-bold ms-5 ps-5 fs-4 p-3" href="#">ONLYFLANS</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="background-color: rgb(255, 248, 238);">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -18,6 +18,19 @@
                 <li class="nav-item">
                     <a class="nav-link activate fw-bold text-white" aria-current="page" href="/contacto">Contacto</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link activate fw-bold text-white" aria-current="page" href="/ubicacion">Ubicacion</a>
+                </li>
+
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a type="button" class="btn btn-brown border-white activate fw-bold text-white" aria-current="page" href="{% url 'logout' %}"> Cerrar Sesion</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item ">
+                        <a type="button" class="btn btn-brown border-white activate fw-bold text-white mx-2" aria-current="page" href="{% url 'login' %}"> Iniciar Sesion</a>
+                    </li>
+                {% endif %}
             </div>
       </div>
     </div>

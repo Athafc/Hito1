@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 from .models import Flan, ContactForm
 from .forms import ContactFormForm, ContactFormModelForm
 # Create your views here.
@@ -13,6 +14,7 @@ def indice(request):
 def acerca(request):
     return render(request, 'about.html')
 
+@login_required
 def bienvenido(request):
     private_flans = Flan.objects.filter(is_private=True)
     context = {
@@ -36,5 +38,11 @@ def contacto(request):
     context = {'form':form}
     return render(request, 'contact.html', context)
 
+def ubicacion(request):
+    return render(request, 'ubicacion.html')
+
 def exito(request):
     return render(request, 'exito.html')
+
+
+
